@@ -1,67 +1,28 @@
-	extends layout 
-
-block head 
-    link(rel="stylesheet", href="/categories.css")
-
-block content 
-    section#categories
-        h2 Quiz Categories
-        div.levels-container
-            each category in categories
-                div.level
-                    h3 #{category.CategoryName}
-                    p Category ID: #{category.CategoryID}
-                    button(onclick=`selectCategory('${category.CategoryID}')`) Choose
-    p.choose-text Pick a quiz category ✨
-    
-    script(src="/categories.js" defer)
-
-
-Safa Abdiasis Bashir Yusuf:
-	http://127.0.0.1:3000/language-list
-
-+44 7539 176868:
-	extends layout 
-
-block content
-    section#welcome
-        h1 Welcome back, #{user ? user.Name : "User"}!
-        p Please select a quiz category below
-
-    section#quiz-selection
-        div.categories-container
-            each category in categories
-                div.category-option
-                    button.category-button(onclick=`selectCategory('${category.CategoryID}')`)
-                        img(src=`/images/${category.CategoryID}.png`, alt=`${category.CategoryName}`)
-                        h3 #{category.CategoryName}
-                        p #{category.Description}
-
-    footer
-        p &copy; 2025 Dualinguists
-
-    // Insert JavaScript function from the route
-    != script
-
 extends layout 
 
 block content
-    section#welcome
-        h1 Welcome back, #{user ? user.Name : "User"}!
-        p Please select a quiz category below
+    // Include only the necessary stylesheet
+    link(rel='stylesheet', href='/quizcategories.css')
 
-    section#quiz-selection
-        div.categories-container
-            each category in categories
-                div.category-option
-                    button.category-button(onclick=`selectCategory('${category.CategoryID}')`)
-                        img(src=`/images/${category.CategoryID}.png`, alt=`${category.CategoryName}`)
-                        h3 #{category.CategoryName}
-                        p #{category.Description}
+    section#quiz-container
+        h1 Please select a quiz category
 
-    footer
-        p &copy; 2025 Dualinguists
+        section#options-container
+            div.option-card.quiz
+                button.quiz-button(onclick=`selectCategory('1', '${languageID}')`)
+                    span.icon 
+                    span.option-text Regular Quiz
+                    p Standard quiz for general practice.
 
-    // Insert JavaScript function from the route
-    != script
+            div.option-card.student
+                button.quiz-button(onclick=`selectCategory('2', '${languageID}')`)
+                    span.icon
+                    span.option-text Student Quiz
+                    p Quiz designed for GCSEs.
+
+
+    script.
+        function selectCategory(categoryID, languageID) {
+            window.location.href = categoryID === '1' ? "/regular-quiz?languageID=" + languageID : "/student-quiz?languageID=" + languageID;
+        }
 

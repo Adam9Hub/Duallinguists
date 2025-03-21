@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    link(rel='stylesheet', href='/regular-quiz.css')
+
+    section#quiz-container
+        h1 Regular Quiz - Language: #{languageName}
+
+        if questions.length === 0
+            p No questions available for this language.
+
+        form(action='/submit-quiz', method='POST')
+            each question in questions
+                div.question
+                    h2= question.QuestionText
+                    div.answers
+                        each answer in question.answers
+                            label.answer-option
+                                input(type='radio', name=`${question.QuestionID}`, value=`${answer.AnswerID}`)
+                                span.answer-text= answer.AnswerText
+
+            button(type='submit' id='submit-quiz') Submit Quiz

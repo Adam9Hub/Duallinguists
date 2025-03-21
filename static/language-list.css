@@ -1,0 +1,161 @@
+/* ========== General Layout ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0072b2, #005a8c); /* ✅ Matches homepage */
+    color: #000000; /*  Ensures readability */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+/* ========== Welcome Section ========== */
+#welcome {
+    padding-top: 120px; /*  Adjusted to avoid overlap */
+}
+
+#welcome h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #1d1c1c; /*  High contrast */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* ========== Language Selection Section ========== */
+#language-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 50px 20px;
+}
+
+/*  Language Container */
+.languages-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    max-width: 1200px;
+}
+
+/*  Individual Language Option */
+.language-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    max-width: 220px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-in-out forwards;
+}
+
+/*  Staggered animation delay */
+.language-option:nth-child(1) { animation-delay: 0.2s; }
+.language-option:nth-child(2) { animation-delay: 0.4s; }
+.language-option:nth-child(3) { animation-delay: 0.6s; }
+.language-option:nth-child(4) { animation-delay: 0.8s; }
+.language-option:nth-child(5) { animation-delay: 1s; }
+
+/*  Language Button */
+.language-button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+    width: 100%;
+}
+
+/*  Language Circle */
+.language-circle {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(29, 29, 29, 0.2);
+    backdrop-filter: blur(10px); /* ✅ Glassmorphism effect */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+/*  Hover Effect */
+.language-option:hover {
+    transform: scale(1.1);
+}
+
+.language-circle:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 10px 25px rgba(255, 255, 255, 0.3);
+}
+
+/*  Language Name */
+.language-name {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #171616; /* ✅ Now visible against blue background */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+/*  Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(50px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/*  Responsive Design */
+@media (max-width: 1024px) {
+    .languages-container {
+        gap: 40px;
+    }
+
+    .language-circle {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+@media (max-width: 768px) {
+    .languages-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .language-circle {
+        width: 120px;
+        height: 120px;
+    }
+
+    .language-name {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .language-circle {
+        width: 100px;
+        height: 100px;
+    }
+
+    .language-name {
+        font-size: 1rem;
+    }
+}

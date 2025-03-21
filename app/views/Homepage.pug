@@ -1,51 +1,48 @@
-// Safa 
-
 extends layout
 
-block head 
-    link(rel="stylesheet", href="/styles.css") // Link to external stylesheet 
+block content
+    link(rel='stylesheet', href='/homepage.css')
 
-block content 
+    // Hero Section
+    section.hero
+        div.hero-container
+            div.hero-text
+                h1 Breaking Barriers, Building Bridges
+                h2 One Language at a Time.
+                p Join us in creating a world where communication has no limits.
+                
 
-    // Authentication links for user actions (Sign up / Log in) at the top
-    
-    section.auth-links 
-        a(href="/signup") Sign up
-        a(href="/login") Log in
+    // Mission Section
+    section.mission
+        div.mission-left
+            h2 Our Mission
+            p At Dualinguists, we believe that language is more than just words—it's the key to understanding, connection, and opportunity.
+            p Our mission is to empower learners of all backgrounds to bridge cultures, break barriers, and embrace the global community.
+        div.mission-right
+            img(src='/images/mission.png', alt="Mission Image")
 
-    // Hero section with the main slogan 
+    // We Stand For Section
+    section.values
+        h3 We Stand For
+        div.values-container
+            div.value-card
+                h4 Accessibility
+                p Inclusive, engaging, and intuitive learning.
+            div.value-card
+                h4 Cultural Understanding
+                p Celebrating diversity through meaningful connections.
+            div.value-card
+                h4 Innovation
+                p Blending technology with effective methods.
+            div.value-card
+                h4 Ethics & Inclusion
+                p Fair, respectful, and culturally sensitive education.
+            div.value-card
+                h4 Global Opportunities
+                p Empowering learners for travel, careers, and growth.
 
-    section.hero 
-        div.hero-text 
-            h2 "Breaking Barriers, Building Bridges – One Language at a Time."
-
-    // Mission section explaining the purpose of the platform
-
-    section.mission 
-        div.container 
-            div.mission-left
-                div.mission-title
-                    h2 our
-                    h2 mission
-                p At Dualinguists, we believe that language is more than just words—it's the key to understanding, connection, and opportunity. 
-                p Our mission is to empower learners of all backgrounds to bridge cultures, break barriers, and embrace the global community.
-
-            // List of core values and principles 
-
-            div.mission-right 
-                h3 We Stand For 
-                ul 
-                    li Accessibility for All – Inclusive, engaging, and intuitive language learning for everyone.
-                    li Cultural Understanding – Celebrating diversity through language and meaningful connections. 
-                    li Innovative Learning – Blending technology with proven methods for an effective experience. 
-                    li Ethical & Inclusive Education – Fair, respectful, and culturally sensitive learning for all.
-                    li Global Opportunities – Empowering learners for travel, careers, and personal growth.
-
-    // Movement section encouraging users to join the platform
-    section.movement 
-        div.container 
-            h3 Join the Movement 
-            p Language is a superpower—it unites people and opens new opportunities.
-            p At Dualinguists, we're not just teaching words; we're creating a world where communication has no limits. 
-            p Be a part of the change. Speak. Learn. Connect. 🌍✨
-            h3 Sign up today!
+    // Sign Up Section (Replaced with Join the Movement)
+    section.cta
+        h3 Join the Movement
+        p Language is a superpower—it unites people and opens new opportunities.
+        a.btn(href="/signup") Join the Movement
